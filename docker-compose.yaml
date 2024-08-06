@@ -1,0 +1,29 @@
+version: "3"
+
+networks:
+  net-api-produto:
+    driver: bridge
+volumes:
+  mongo_vol:
+
+services:
+  api:
+    image: oagara/api-produto:v1
+    ports:
+      - 8080:8080
+    environment:
+      MONGODB_URI: mongodb://mongouser:mongopwd@mongodb:27017/admin
+    networks:
+      - net-api-produto
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - net-api-produto
+    volumes:
+      - mongo_vol:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongouser
+      MONGO_INITDB_ROOT_PASSWORD: mongopwd

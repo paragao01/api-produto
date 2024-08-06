@@ -27,7 +27,7 @@ O dir onde fica guardado os dados do DB
         "Mountpoint": "/var/lib/docker/volumes/mongo_vol/_data",
 ----------------------------------------------
 
-
+docker-compose up -d
 iniciativa kubernets
 
 
